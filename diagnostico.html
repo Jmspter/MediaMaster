@@ -27,19 +27,14 @@
   }
 }
 button {
-  position: fixed;
   display: block;
   margin: 0 auto;
   padding: 10px;
-  left: 12%;
   background-color: #d94052;
   color: white;
   border-radius: 20px;
   cursor: pointer;
   bottom: 20px;
-  position: absolute;
-  align-items: center;
-  justify-content: center;
   width: 300px;
   border:none;
   box-shadow: 2px 3px 5px #e5625c;
@@ -63,12 +58,14 @@ p{
  <!---titulo + resultado---> 
   <h1 id="apRp"></h1>
   <p id="cm"></p>
+  <p id="vf"></p>
   <!------->
   <button onclick="voltar()"><strong>VOLTAR</strong></button>
   
   <script>
     var urlParams = new URLSearchParams(window.location.search);
     var media = urlParams.get('media');
+    var valFal = (6 - media) * 4;
 
     document.getElementById('cm').innerText = `Sua média é:  ${media}`
     
@@ -77,9 +74,11 @@ p{
       if (media >= 6) {
         imagemResultado.src = "aproved.jpg";
         document.getElementById('apRp').innerText = "APROVADO"
+        document.getElementById('vf').innerText = `Parabéns você passou!`
       } else {
         imagemResultado.src = "reproved.jpg"; 
         document.getElementById('apRp').innerText = "RECUPERAÇÃO"
+        document.getElementById('vf').innerText = `Precisa de ${valFal} na prova final`
       }
       function voltar(){
         window.location.href = "index.html"
