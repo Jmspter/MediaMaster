@@ -77,8 +77,13 @@ p{
         document.getElementById('vf').innerText = `Parabéns você passou!`
       } else {
         imagemResultado.src = "reproved.jpg"; 
-        document.getElementById('apRp').innerText = "RECUPERAÇÃO"
-        document.getElementById('vf').innerText = `Precisa de ${valFal} na prova final`
+        if (valFal > 10) {
+          document.getElementById('apRp').innerText = "REPROVADO"
+          document.getElementById('vf').innerText = 'Boa sorte no próximo ano'
+        } else {
+          document.getElementById('apRp').innerText = "RECUPERAÇÃO"
+          document.getElementById('vf').innerText = `Precisa de ${valFal} na prova final`
+        }
       }
       function voltar(){
         window.location.href = "index.html"
