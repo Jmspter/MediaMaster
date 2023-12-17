@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diagnostico</title>
   <style>
+  @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;500&family=Josefin+Sans&family=Nanum+Gothic&display=swap');
   body {
   margin: 0;
   padding: 0;
@@ -26,35 +27,50 @@
   }
 }
 button {
+  position: fixed;
   display: block;
   margin: 0 auto;
   padding: 10px;
-  background-color: aquamarine;
+  left: 12%;
+  background-color: #d94052;
   color: white;
   border-radius: 20px;
   cursor: pointer;
+  bottom: 20px;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  border:none;
+  box-shadow: 2px 3px 5px #e5625c;
 }
 
 h1 {
   text-align: center;
-  color: aquamarine;
+  color:  #315259;
+  font-family: 'Exo 2', sans-serif;
 }
 p{
   text-align: center;
+  font-size: 20px;
+  font-family: 'Exo 2', sans-serif;
 }
   </style>
 </head>
 <body>
+  <!---imagem-->
+  <img id="imagemResultado" style="max-width: 70%; height: auto; display: block; margin: 0 auto;">
+ <!---titulo + resultado---> 
   <h1 id="apRp"></h1>
   <p id="cm"></p>
-  <img id="imagemResultado" style="max-width: 70%; height: auto; display: block; margin: 0 auto;">
-
+  <!------->
   <button onclick="voltar()"><strong>VOLTAR</strong></button>
+  
   <script>
     var urlParams = new URLSearchParams(window.location.search);
     var media = urlParams.get('media');
 
-    document.getElementById('cm').innerText = `A média é ${media}`
+    document.getElementById('cm').innerText = `Sua média é:  ${media}`
     
     var imagemResultado = document.getElementById("imagemResultado");
 
