@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?família=Josefin+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?família=Josefin+Sans&família=Nanum+Gótico&display=swap');
 @keyframes fadeIn {
     from {
       opacity: 0;
@@ -8,11 +6,6 @@
       opacity: 1;
     }
   }
-  input::-webkit-inner-spin-button,
-   input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-   }
 
 /* Color Theme Swatches in Hex */
 .color-theme_3371524-1-hex { color: #315259; }
@@ -24,16 +17,16 @@
 body, html {
     height: 100%;
     margin: 0;
+    background-color: white;
 }
 
 body {
     opacity: 0;
     animation: fadeIn 1.5s ease-in-out forwards;
-    font-family: 'Josefin Sans', sans-serif;
 }
 
 h1 {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     color: #315259;
     text-align: center;
     font-size: 30px;
@@ -43,10 +36,14 @@ header {
     align-items: center;
     justify-items: center;
 }
-header h1{
- font-size: 25px;
+footer {
+    height: 25px;
+    background-color: #F2A2A2;
+    color: #F2F2F2;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
 }
-
 section {
     text-align: center;
 }
@@ -58,7 +55,6 @@ section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
-  font-family: 'Josefin Sans', sans-serif;
 }
 
 .notas { 
@@ -67,6 +63,19 @@ section {
     align-items: center;
     justify-items: center;
 }
+
+.alert-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(209, 209, 209, 0.95);
+    color: rgb(0, 0, 0);
+    padding: 30px;
+    text-align: left;
+    border-radius: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 input {
     padding: 10px;
     width: 65%;
@@ -74,8 +83,6 @@ input {
     border-radius: 20px;
     text-align: center;
     margin-left: 10px;
-    font-size: 18px;
-    font-family: 'Josefin Sans', sans-serif;
 }
 
 button {
@@ -101,34 +108,7 @@ button {
     font-size: 24px;
     font-weight: bold;
 }
+
 .number {
     z-index: 1;
-}
-.alert{
- position: relative;
- top:-70%;
- display: none;
- justify-content: center;
- align-items:center;
- width: 350px;
- height: 150px;
- background-color: gray;
- left:16%;
- border-radius: 10px;
- font-family: 'Nanum Gothic', sans-serif;
-}
-.alert p{ 
- position: relative;
- padding: 5px;
- margin: 2px;
- top: -5%;
-}
-.alert button{
- position: absolute;
- width: 45px;
- height: 30px;
- top: 56%;
- font-size: 14px;
- background-color: azure;
- color: #315259;
 }
