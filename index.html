@@ -20,35 +20,30 @@
                     <div class="circulo">
                         <p class="number">1</p>
                     </div>
-                    <input type="number" id="input1" placeholder="BIM..." min="0" max="10" required>
+                    <input type="number" id="input1" placeholder="BIMESTRE" required>
                 </div>
                 <div class="notas">
                     <div class="circulo">
                         <p class="number">2</p>
                     </div>
-                    <input type="number" id="input2" placeholder="BIM..." min="0"  max="10" required>
+                    <input type="number" id="input2" placeholder="BIMESTRE" required>
                 </div>
                 <div class="notas">
                     <div class="circulo">
                         <p class="number">3</p>
                     </div>
-                    <input type="number" id="input3" placeholder="BIM..." min="0" max="10" required>
+                    <input type="number" id="input3" placeholder="BIMESTRE" required>
                 </div>
                 <div class="notas">
                     <div class="circulo">
                         <p class="number">4</p>
                     </div>
-                    <input type="number" id="input4" placeholder="BIM..." min="0"  max="10" required>
+                    <input type="number" id="input4" placeholder="BIMESTRE" required>
                 </div>
             </div>
             <button onclick="calcularMedia()"><strong>Diagnóstico</strong></button>
         </section>
     </main> 
-    <div id="alert" class="alert">
-        <p style="font-family: 'Nanum Gothic', sans-serif;">Por favor, insira valores válidos (menores ou iguais a 10, caso sem nota, substitua por 0.).</p>
-        <button onclick="acao()">OK</button>
-    </div>
-
 
 
     <script>
@@ -57,19 +52,28 @@
           var nota2 = parseFloat(document.getElementById("input2").value);
           var nota3 = parseFloat(document.getElementById("input3").value);
           var nota4 = parseFloat(document.getElementById("input4").value);
-          var alert = document.getElementById('alert')
           
+          if (isNaN(nota1) || isNaN(nota2) ||  isNaN(nota3) ||  isNaN(nota4) || nota1 > 10 || nota2 > 10 || nota3 > 10|| nota4 > 10 || nota1 < 0 || nota2 < 0 || nota3 < 0 || nota4 < 0) {
+                exibirAlerta('Por favor, preencha os campos corretamente.');
+          } else {
+            var media = (nota1 + nota2 + nota3 + nota4) / 4;
+            window.location.href = "diagnostico.html?media=" + encodeURIComponent(media.toFixed(2));
+          }
+          function exibirAlerta(mensagem) {
+            // Cria uma caixa de alerta personalizada
+            var alertBox = document.createElement('div');
+            alertBox.setAttribute('class', 'alert-box');
+            alertBox.innerHTML = mensagem;
 
-          if (isNaN(nota1) || isNaN(nota2) ||  isNaN(nota3) ||  isNaN(nota4) || nota1 > 10 || nota2 > 10 || nota3 > 10|| nota4 > 10) {
-            alert.style.display = 'flex'
-      return;
+            // Adiciona a caixa de alerta ao corpo do documento
+            document.body.appendChild(alertBox);
 
-    }
-           
-    
-          var media = (nota1 + nota2 + nota3 + nota4) / 4;
-    
-          window.location.href = "diagnostico.html?media=" + encodeURIComponent(media.toFixed(2));
+            // Remove a caixa de alerta após alguns segundos
+            setTimeout(function() {
+                document.body.removeChild(alertBox);
+            }, 3000); 
+        }
+          
         }
 
         function acao(){ 
